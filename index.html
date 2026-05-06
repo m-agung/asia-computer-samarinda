@@ -276,43 +276,72 @@ body {
 </head>
 <body>
 
- <nav class="navbar">
+ <!-- NAVIGATION BAR LENGKAP + SUB MENU -->
+<nav class="navbar">
     <div class="container nav-container">
-        <h2 class="logo">ASIA COMPUTER</h2>
 
+        <!-- Logo -->
+        <div class="logo">
+            <a href="index.html">ASIA COMPUTER</a>
+        </div>
+
+        <!-- Menu -->
         <ul class="nav-menu">
-            <li><a href="#">Home</a></li>
 
+            <li><a href="index.html">Home</a></li>
+
+            <!-- Sub Menu Layanan -->
             <li class="dropdown">
                 <a href="#">Layanan ▼</a>
                 <ul class="submenu">
-                    <li><a href="#">Service Laptop</a></li>
-                    <li><a href="#">Install Ulang</a></li>
-                    <li><a href="#">Upgrade SSD / RAM</a></li>
-                    <li><a href="#">Service Printer</a></li>
+                    <li><a href="#service-laptop">Service Laptop</a></li>
+                    <li><a href="#install-ulang">Install Ulang</a></li>
+                    <li><a href="#upgrade">Upgrade SSD / RAM</a></li>
+                    <li><a href="#printer">Service Printer</a></li>
                 </ul>
             </li>
 
+            <!-- Sub Menu Customer -->
             <li class="dropdown">
                 <a href="#">Customer ▼</a>
                 <ul class="submenu">
-                    <li><a href="#">Booking Service</a></li>
-                    <li><a href="#">Cek Status</a></li>
-                    <li><a href="#">Invoice</a></li>
+                    <li><a href="#booking">Booking Service</a></li>
+                    <li><a href="tracking.html">Cek Status Service</a></li>
+                    <li><a href="invoice.html">Invoice Service</a></li>
+                    <li><a href="customer-form.html">Form Customer</a></li>
                 </ul>
             </li>
 
+            <!-- Sub Menu Produk -->
+            <li class="dropdown">
+                <a href="#">Produk ▼</a>
+                <ul class="submenu">
+                    <li><a href="#laptop">Laptop Second</a></li>
+                    <li><a href="#printer-jual">Printer</a></li>
+                    <li><a href="#sparepart">Sparepart</a></li>
+                    <li><a href="#aksesoris">Aksesoris Komputer</a></li>
+                </ul>
+            </li>
+
+            <!-- Sub Menu Admin -->
             <li class="dropdown">
                 <a href="#">Admin ▼</a>
                 <ul class="submenu">
-                    <li><a href="admin.html">Dashboard</a></li>
-                    <li><a href="#">Data Customer</a></li>
-                    <li><a href="#">Laporan</a></li>
+                    <li><a href="admin.html">Dashboard Admin</a></li>
+                    <li><a href="login.html">Login Admin</a></li>
+                    <li><a href="report.html">Laporan Bulanan</a></li>
+                    <li><a href="database.html">Database</a></li>
                 </ul>
             </li>
 
-            <li><a href="#">Kontak</a></li>
+            <!-- Tentang -->
+            <li><a href="#about">Tentang Kami</a></li>
+
+            <!-- Kontak -->
+            <li><a href="#contact">Kontak</a></li>
+
         </ul>
+
     </div>
 </nav>
 
