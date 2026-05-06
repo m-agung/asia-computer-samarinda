@@ -111,6 +111,18 @@
       box-shadow: 0 5px 15px rgba(0,0,0,0.3);
     }
 
+    .logo {
+  width: 180px;
+  margin-bottom: 20px;
+  filter: drop-shadow(0 0 10px rgba(192, 0, 0, 0.6))
+          drop-shadow(0 0 20px rgba(255, 255, 255, 0.15));
+  transition: 0.3s ease;
+}
+    .logo:hover {
+  filter: drop-shadow(0 0 15px rgba(192, 0, 0, 0.8))
+          drop-shadow(0 0 30px rgba(255, 255, 255, 0.25));
+  transform: scale(1.03);
+}
     iframe {
       width: 100%;
       height: 300px;
@@ -123,7 +135,7 @@
 <body>
 
   <header>
-    <img src="logo.png" width="180">
+<img src="logo.png" alt="Logo Asia Computer" class="logo">
     <h1>Asia Computer Samarinda</h1>
     <p>Service Laptop • PC • Printer • Upgrade SSD/RAM • Install Ulang Windows</p>
     <a href="#contact" class="btn btn-primary">Booking Service</a>
