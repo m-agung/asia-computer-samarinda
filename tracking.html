@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tracking Service Live - Asia Computer</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#050505;
+    color:#fff;
+    padding:30px;
+}
+
+.container{
+    max-width:900px;
+    margin:auto;
+}
+
+h1{
+    text-align:center;
+    margin-bottom:30px;
+    color:#C00000;
+}
+
+.tracking-box{
+    background:#111;
+    padding:30px;
+    border-radius:18px;
+    border:1px solid #5A1E1E;
+    margin-bottom:30px;
+}
+
+input{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:10px;
+    margin-bottom:15px;
+    font-size:16px;
+}
+
+button{
+    width:100%;
+    padding:15px;
+    background:#C00000;
+    color:white;
+    border:none;
+    border-radius:10px;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+button:hover{
+    opacity:0.9;
+}
+
+.result{
+    display:none;
+    margin-top:30px;
+    background:#111;
+    padding:30px;
+    border-radius:18px;
+    border:1px solid #5A1E1E;
+}
+
+.status-header{
+    margin-bottom:25px;
+}
+
+.status-header h2{
+    color:#C00000;
+    margin-bottom:10px;
+}
+
+.timeline{
+    position:relative;
+    margin-top:20px;
+    padding-left:30px;
+    border-left:3px solid #C00000;
+}
+
+.step{
+    margin-bottom:30px;
+    position:relative;
+}
+
+.step::before{
+    content:"";
+    position:absolute;
+    left:-39px;
+    top:5px;
+    width:16px;
+    height:16px;
+    background:#C00000;
+    border-radius:50%;
+    border:3px solid #fff;
+}
+
+.step h3{
+    color:#fff;
+    margin-bottom:5px;
+}
+
+.step p{
+    color:#ccc;
+    font-size:14px;
+}
+
+.done{
+    opacity:1;
+}
+
+.pending{
+    opacity:0.5;
+}
+
+.info-box{
+    margin-top:25px;
+    padding:20px;
+    background:#1a1a1a;
+    border-radius:12px;
+}
+
+.info-box p{
+    margin-bottom:10px;
+}
+
+@media(max-width:768px){
+    body{
+        padding:15px;
+    }
+
+    .tracking-box,
+    .result{
+        padding:20px;
+    }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+    <h1>Tracking Service Live</h1>
+
+    <div class="tracking-box">
+        <input type="text" id="invoice" placeholder="Masukkan Nomor Invoice (contoh: AC-2026-001)">
+        <button onclick="cekTracking()">Cek Status Service</button>
+    </div>
+
+    <div class="result" id="resultBox">
+
+        <div class="status-header">
+            <h2>Status Service</h2>
+            <p id="customerName"><strong>Customer:</strong> -</p>
+            <p id="deviceName"><strong>Device:</strong> -</p>
+            <p id="problemText"><strong>Keluhan:</strong> -</p>
+        </div>
+
+        <div class="timeline">
+
+            <div class="step done">
+                <h3>Device Diterima</h3>
+                <p>Perangkat telah diterima oleh teknisi</p>
+            </div>
+
+            <div class="step done">
+                <h3>Proses Diagnosa</h3>
+                <p>Pemeriksaan awal sedang dilakukan</p>
+            </div>
+
+            <div class="step done">
+                <h3>Proses Perbaikan</h3>
+                <p>Teknisi sedang melakukan perbaikan</p>
+            </div>
+
+            <div class="step pending">
+                <h3>Quality Check</h3>
+                <p>Pengecekan hasil service</p>
+            </div>
+
+            <div class="step pending">
+                <h3>Siap Diambil</h3>
+                <p>Customer dapat mengambil perangkat</p>
+            </div>
+
+        </div>
+
+        <div class="info-box">
+            <p><strong>Estimasi Selesai:</strong> 2 Hari</p>
+            <p><strong>Teknisi:</strong> Ahmad Service Team</p>
+            <p><strong>Status Saat Ini:</strong> Sedang Dalam Perbaikan</p>
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+function cekTracking() {
+    let invoice = document.getElementById("invoice").value;
+    let resultBox = document.getElementById("resultBox");
+
+    if(invoice === "") {
+        alert("Masukkan nomor invoice terlebih dahulu");
+        return;
+    }
+
+    document.getElementById("customerName").innerHTML =
+        "<strong>Customer:</strong> Budi Santoso";
+
+    document.getElementById("deviceName").innerHTML =
+        "<strong>Device:</strong> Laptop ASUS VivoBook";
+
+    document.getElementById("problemText").innerHTML =
+        "<strong>Keluhan:</strong> Laptop mati total";
+
+    resultBox.style.display = "block";
+}
+</script>
+
+</body>
+</html>
