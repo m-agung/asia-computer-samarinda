@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Upload Bukti Service - Asia Computer</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#050505;
+    color:#fff;
+    padding:30px;
+}
+
+.container{
+    max-width:900px;
+    margin:auto;
+}
+
+h1{
+    text-align:center;
+    color:#C00000;
+    margin-bottom:30px;
+}
+
+.upload-box{
+    background:#111;
+    padding:30px;
+    border-radius:18px;
+    border:1px solid #5A1E1E;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+    margin-bottom:20px;
+}
+
+input, textarea, select{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:10px;
+    font-size:15px;
+}
+
+textarea{
+    resize:none;
+    height:100px;
+}
+
+input[type="file"]{
+    background:#fff;
+    color:#000;
+    padding:12px;
+}
+
+button{
+    width:100%;
+    padding:15px;
+    background:#C00000;
+    color:#fff;
+    border:none;
+    border-radius:10px;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+button:hover{
+    opacity:0.9;
+}
+
+.preview{
+    display:none;
+    margin-top:30px;
+    background:#1a1a1a;
+    padding:30px;
+    border-radius:18px;
+    border:1px solid #5A1E1E;
+}
+
+.preview h2{
+    color:#C00000;
+    margin-bottom:20px;
+}
+
+.preview img{
+    width:100%;
+    max-width:400px;
+    border-radius:12px;
+    margin-top:15px;
+    border:1px solid #333;
+}
+
+.status{
+    margin-top:20px;
+    padding:15px;
+    background:#0f0f0f;
+    border-radius:10px;
+    line-height:1.8;
+}
+
+.success{
+    color:#25D366;
+    font-weight:bold;
+}
+
+@media(max-width:768px){
+    .grid{
+        grid-template-columns:1fr;
+    }
+
+    body{
+        padding:15px;
+    }
+
+    .upload-box,
+    .preview{
+        padding:20px;
+    }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+    <h1>Upload Bukti Service</h1>
+
+    <div class="upload-box">
+
+        <div class="grid">
+            <input type="text" id="invoice" placeholder="Nomor Invoice">
+            <input type="text" id="customer" placeholder="Nama Customer">
+        </div>
+
+        <div class="grid">
+            <input type="text" id="device" placeholder="Jenis Device">
+            <select id="status">
+                <option value="">Pilih Status Service</option>
+                <option>Sedang Diperbaiki</option>
+                <option>Menunggu Sparepart</option>
+                <option>Quality Check</option>
+                <option>Service Selesai</option>
+            </select>
+        </div>
+
+        <textarea id="keterangan" placeholder="Keterangan Teknisi"></textarea>
+
+        <input type="file" id="fotoService" accept="image/*">
+
+        <button onclick="uploadBukti()">Upload Bukti Service</button>
+
+    </div>
+
+    <div class="preview" id="previewBox">
+
+        <h2>Bukti Service Berhasil Diupload</h2>
+
+        <div class="status">
+            <p id="showInvoice"></p>
+            <p id="showCustomer"></p>
+            <p id="showDevice"></p>
+            <p id="showStatus"></p>
+            <p id="showKeterangan"></p>
+            <p class="success">✓ Data service berhasil tersimpan</p>
+        </div>
+
+        <img id="previewImage" src="" alt="Preview Bukti Service">
+
+    </div>
+
+</div>
+
+<script>
+function uploadBukti(){
+
+    let invoice = document.getElementById("invoice").value;
+    let customer = document.getElementById("customer").value;
+    let device = document.getElementById("device").value;
+    let status = document.getElementById("status").value;
+    let keterangan = document.getElementById("keterangan").value;
+    let foto = document.getElementById("fotoService").files[0];
+
+    if(invoice === "" || customer === ""){
+        alert("Mohon lengkapi data service");
+        return;
+    }
+
+    document.getElementById("showInvoice").innerHTML =
+        "<strong>Invoice:</strong> " + invoice;
+
+    document.getElementById("showCustomer").innerHTML =
+        "<strong>Customer:</strong> " + customer;
+
+    document.getElementById("showDevice").innerHTML =
+        "<strong>Device:</strong> " + device;
+
+    document.getElementById("showStatus").innerHTML =
+        "<strong>Status:</strong> " + status;
+
+    document.getElementById("showKeterangan").innerHTML =
+        "<strong>Keterangan:</strong> " + keterangan;
+
+    if(foto){
+        let reader = new FileReader();
+
+        reader.onload = function(e){
+            document.getElementById("previewImage").src = e.target.result;
+        }
+
+        reader.readAsDataURL(foto);
+    }
+
+    document.getElementById("previewBox").style.display = "block";
+}
+</script>
+
+</body>
+</html>
